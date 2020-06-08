@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.lightGray
     }
     
     
@@ -35,19 +36,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let curso = cursos[indexPath.row]
         cell.textLabel?.text = curso.nombre
         
-        let numberExamen = (curso.examen! as NSString).doubleValue
+        let doublee:Double = Double(curso.examen!)!
         
-        if numberExamen>=13.00{
-            func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-                cell.backgroundColor = UIColor.green
-            }
-        }else if numberExamen<13.00{
-            func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-                cell.backgroundColor = UIColor.red
-            }
+        if doublee>=13.00{
+            cell.backgroundColor = UIColor.init(red: 000, green: 999, blue: 000, alpha: 0.2)
+        }else if doublee<13.00{
+                cell.backgroundColor = UIColor.init(red: 999, green: 000, blue: 000, alpha: 0.2)
         }
-        
-        
         return cell
     }
     
